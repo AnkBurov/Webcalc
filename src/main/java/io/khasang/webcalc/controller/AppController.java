@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.WebApplicationContext;
 
 @Controller
-@Scope(value = WebApplicationContext.SCOPE_SESSION)
 public class AppController {
     @Autowired
     private Calc calc;
+
+    public void setCalc(Calc calc) {
+        this.calc = calc;
+    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home(Model model) {
