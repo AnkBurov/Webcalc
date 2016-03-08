@@ -1,2 +1,2 @@
 # Webcalc #
-Simple Spring MVC expression web calculator.
+Simple Spring MVC based expression calculator.
