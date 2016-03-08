@@ -20,27 +20,28 @@ import java.util.Scanner;
 @Component
 public class Calc {
     private String scannerString; // вводимая пользователем строка
+    private StringBuilder result;
     private List<Float> numbers; // коллекция чисел
     private List<String> symbols; // коллекция знаков операций
 
     public Calc() {
+        result = new StringBuilder();
     }
 
     /**
      * основной метод калькулятора
      */
-    // todo справить ситуацию с нулем
     public String launchCalc(String expression) {
         initCalc();
         try {
             prepareExpression(expression);
             calculateNumbers();
         } catch (RuntimeException e) {
-            e.printStackTrace();
-            return e.getMessage();
+            result.insert(0, e.getMessage() + "<BR>");
+            return result.toString();
         }
-
-        return scannerString + " = " + numbers.get(0);
+        result.insert(0, scannerString + " = " + numbers.get(0) + "<BR>");
+        return result.toString();
     }
 
     /**
@@ -115,7 +116,7 @@ public class Calc {
      * итератор не использован из-за необходимости изменения содержимого коллекций
      */
     private void calculateNumbers() throws RuntimeException {
-        
+
         /*Ищем умножение и деление*/
         for (int i = 0; i < symbols.size(); i++) {
             if (symbols.get(i).equals("*")) {
