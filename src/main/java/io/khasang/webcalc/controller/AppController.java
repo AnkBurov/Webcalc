@@ -22,14 +22,14 @@ public class AppController {
         this.calc = calc;
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/calc", method = RequestMethod.GET)
     public String home(Model model) {
-        return "home";
+        return "calc";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "/calc", method = RequestMethod.POST)
     public String home(Model model, @RequestParam(value = "expression", required = false) String expression) {
         model.addAttribute("calcExpression", calc.launchCalc(expression));
-        return "home";
+        return "calc";
     }
 }

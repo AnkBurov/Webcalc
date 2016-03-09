@@ -21,7 +21,7 @@
     <li>Вычисляет выражение согласно приоритету знаков арифметических операций</li>
     <li>На текущий момент скобки не поддерживаются.</li>
 </ul>
-<form method="Post" action="">
+<form method="Post">
     <input type="text" name="expression"/>
     <input type='submit'/>
 </form>
